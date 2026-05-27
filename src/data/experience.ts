@@ -8,13 +8,22 @@ export interface Experience {
 }
 
 export const experiences: Experience[] = [
+    {
+    role: 'Software Programming',
+    company: 'SENA - Centro de Comercio y Servicios',
+    period: 'May 2026 — Actualidad',
+    description:
+      'Technical training in software development focused on programming logic, databases, web technologies, software architecture, and modern application development.',
+    tags: ['Programming', 'Databases', 'Web Development'],
+    current: true,
+  },
   {
     role: 'Systems & Networks Technician',
     company: 'Inst. Tec. San Agustin',
     period: 'Ene 2025 — Actualidad',
     description:
       'Technical training focused on computer system maintenance, TCP/IP network configurations, server management, and IT technical support',
-    tags: ['Systems', 'Networks', 'IT Support'],
+    tags: ['Systems', 'Databases', 'Networks', 'IT Support'],
     current: true,
   },
   {
