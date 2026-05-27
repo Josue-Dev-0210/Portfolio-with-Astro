@@ -18,7 +18,6 @@ FEATURED PROJECTS:
 | Project | Demo |
 |---|---|
 | Interactive Terminal | [link](https://josue-dev-0210.github.io/Interactive-Terminal-Style-CV/) |
-| Log Analyzer | [link](https://josue-dev-0210.github.io/Analizador-de-Log/) |
 | Network Scanner Visual | [link](https://josue-dev-0210.github.io/Network-Scanner-Visual/) |
 | Subnet Calculator | [link](https://josue-dev-0210.github.io/Calculadora-de-Subredes/) |
 | Password Strength Analyzer | [link](https://josue-dev-0210.github.io/Password-tester-JC/) |
