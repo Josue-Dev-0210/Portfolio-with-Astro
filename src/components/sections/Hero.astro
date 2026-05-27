@@ -1,0 +1,241 @@
+---
+import ArrowRight from '../icons/ArrowRight.astro';
+import Download from '../icons/Download.astro';
+import GitHub from '../icons/GitHub.astro';
+import LinkedIn from '../icons/LinkedIn.astro';
+import Twitter from '../icons/Twitter.astro';
+import { Image } from 'astro:assets';
+import avatarImg from '../../assets/avatar.png';
+---
+
+<section
+  id="hero"
+  style="
+    min-height:100vh;
+    display:flex;align-items:center;
+    position:relative;overflow:hidden;
+    background:var(--bg-void);
+  "
+>
+
+  <div class="hero-grid" style="position:absolute;inset:0;z-index:0;"></div>
+
+  <div style="
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    width:800px;height:800px;
+    background:radial-gradient(ellipse at center, rgba(124,58,237,0.12) 0%, transparent 70%);
+    pointer-events:none;z-index:0;
+  "></div>
+
+  <div style="
+    position:absolute;bottom:-100px;left:-100px;
+    width:500px;height:500px;
+    background:radial-gradient(ellipse, rgba(168,85,247,0.07) 0%, transparent 70%);
+    pointer-events:none;z-index:0;
+  "></div>
+
+  <div style="
+    position:absolute;top:-50px;right:-50px;
+    width:400px;height:400px;
+    background:radial-gradient(ellipse, rgba(6,182,212,0.06) 0%, transparent 70%);
+    pointer-events:none;z-index:0;
+  "></div>
+
+  <div class="container" style="position:relative;z-index:1;padding-top:5rem;padding-bottom:5rem;">
+    <div style="
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:4rem;align-items:center;
+    " class="hero-grid-layout">
+
+      <div>
+        <div
+          class="animate-fade-in"
+          style="
+            display:inline-flex;align-items:center;gap:0.5rem;
+            background:rgba(168,85,247,0.08);
+            border:1px solid rgba(168,85,247,0.25);
+            border-radius:999px;
+            padding:0.35rem 1rem;
+            margin-bottom:2rem;
+          "
+        >
+          <div style="width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px #22c55e;animation:glow-pulse 2s infinite;"></div>
+          <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-secondary);letter-spacing:0.1em;">
+            Available for projects
+          </span>
+        </div>
+
+        <p
+          class="animate-fade-in-up delay-100"
+          style="font-family:var(--font-mono);font-size:0.85rem;color:var(--neon-purple);letter-spacing:0.15em;margin-bottom:0.5rem;"
+        >
+          &gt;&gt; I'M
+        </p>
+
+        <div class="animate-fade-in-up delay-200" style="margin-bottom:0.5rem;">
+          <div class="glitch-text" data-text="JOSUÉ" style="display:inline-block;">
+            <span style="
+              font-family:var(--font-display);
+              font-size:clamp(3rem,8vw,5.5rem);
+              font-weight:700;
+              color:var(--text-primary);
+              letter-spacing:-0.03em;
+              line-height:1;
+            ">JOSUÉ_CÁCERES I.</span>
+          </div>
+        </div>
+
+        <div
+          class="animate-fade-in-up delay-300 typing-container"
+          style="margin-bottom:1.5rem;min-height:2.5rem;"
+        >
+          <span style="font-family:var(--font-display);font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:500;color:var(--neon-purple);">
+            <span id="typing-text"></span>
+          </span>
+          <div class="typing-cursor"></div>
+        </div>
+
+        <p
+          class="animate-fade-in-up delay-400"
+          style="
+            color:var(--text-secondary);
+            font-size:1.05rem;
+            line-height:1.75;
+            max-width:480px;
+            margin-bottom:2.5rem;
+          "
+        >
+        Software Developer & IT Specialist focused on <span style="color:var(--text-primary);font-weight:500;">Python, Linux, cybersecurity, networking, and modern web technologies</span>.Passionate about building real-world solutions, scalable systems, and continuously learning new technologies.
+        </p>
+
+        <div class="animate-fade-in-up delay-500" style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;">
+          <a href="#projects" class="btn btn-primary animate-glow-pulse" style="gap:0.5rem;">
+            View projects
+            <ArrowRight size={18} />
+          </a>
+          <a href="/cv.pdf" download class="btn btn-outline" style="gap:0.5rem;">
+            <Download size={18} />
+            Download CV
+          </a>
+        </div>
+
+        <div class="animate-fade-in-up delay-700" style="display:flex;align-items:center;gap:1.5rem;">
+          <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);letter-spacing:0.1em;">FOLLOW ME</span>
+          <div style="display:flex;gap:1.25rem;align-items:center;">
+            {[
+              { icon: 'github', href: 'https://github.com', label: 'GitHub' },
+              { icon: 'linkedin', href: 'https://linkedin.com', label: 'LinkedIn' },
+              { icon: 'twitter', href: 'https://twitter.com', label: 'Twitter' },
+            ].map((s) => (
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener"
+                aria-label={s.label}
+                style="
+                  color:var(--text-muted);
+                  transition:all 0.2s ease;
+                  display:flex;
+                "
+                class="social-link"
+              >
+                {s.icon === 'github' && <GitHub size={20} />}
+                {s.icon === 'linkedin' && <LinkedIn size={20} />}
+                {s.icon === 'twitter' && <Twitter size={20} />}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="animate-scale-in delay-300" style="display:flex;justify-content:center;align-items:center;">
+        <div style="position:relative;" class="animate-float">
+          <div style="
+            position:absolute;inset:-16px;
+            clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+            background:linear-gradient(135deg,rgba(168,85,247,0.3),rgba(6,182,212,0.15));
+            animation:glow-pulse 3s ease-in-out infinite;
+          "></div>
+
+          <div style="
+            position:absolute;inset:-8px;
+            clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+            background:linear-gradient(135deg,rgba(124,58,237,0.5),rgba(168,85,247,0.3));
+          "></div>
+
+          <div style="
+            width:280px;height:280px;
+            clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+            overflow:hidden;position:relative;
+          ">
+            <Image
+              src={avatarImg}
+              alt="DevX Avatar"
+              style="width:100%;height:100%;object-fit:cover;filter:saturate(0.8) contrast(1.1);"
+              loading="eager"
+            />
+            <div style="
+              position:absolute;inset:0;
+              background:linear-gradient(135deg,rgba(168,85,247,0.15),transparent);
+            "></div>
+          </div>
+          <div style="
+            position:absolute;top:-20px;right:-40px;
+            background:var(--bg-surface);
+            border:1px solid rgba(168,85,247,0.3);
+            border-radius:8px;padding:0.6rem 1rem;
+            box-shadow:0 0 20px rgba(168,85,247,0.2);
+          ">
+            <div style="font-family:var(--font-display);font-size:1.3rem;font-weight:800;color:var(--neon-purple);">1+</div>
+            <div style="font-size:0.68rem;color:var(--text-muted);letter-spacing:0.05em;">Years exp.</div>
+          </div>
+
+          <div style="
+            position:absolute;bottom:-20px;left:-40px;
+            background:var(--bg-surface);
+            border:1px solid rgba(6,182,212,0.3);
+            border-radius:8px;padding:0.6rem 1rem;
+            box-shadow:0 0 20px rgba(6,182,212,0.15);
+          ">
+            <div style="font-family:var(--font-display);font-size:1.3rem;font-weight:800;color:var(--neon-cyan);">5+</div>
+            <div style="font-size:0.68rem;color:var(--text-muted);letter-spacing:0.05em;">Certificates</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div
+      class="animate-fade-in delay-1000"
+      style="
+        position:absolute;bottom:-3rem;left:50%;transform:translateX(-50%);
+        display:flex;flex-direction:column;align-items:center;gap:0.5rem;
+      "
+    >
+      <span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted);letter-spacing:0.15em;"></span>
+      <div style="
+        width:1px;height:50px;
+        background:linear-gradient(to bottom,var(--neon-purple),transparent);
+        animation:scan 2s ease-in-out infinite;
+      "></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .social-link:hover { color: var(--neon-purple) !important; filter: drop-shadow(0 0 6px rgba(168,85,247,0.6)); }
+  @media (max-width: 768px) {
+    .hero-grid-layout {
+      grid-template-columns: 1fr !important;
+      text-align: center;
+      gap: 3rem !important;
+    }
+    .hero-grid-layout > div:last-child { order: -1; }
+    .hero-grid-layout .typing-container { justify-content: center; }
+    .hero-grid-layout > div:first-child > div[style*="display:flex;gap:1rem"] { justify-content: center; }
+    .hero-grid-layout > div:first-child > div[style*="SÍGUEME"] { justify-content: center; }
+  }
+</style>

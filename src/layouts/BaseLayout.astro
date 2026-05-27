@@ -1,0 +1,196 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Josué Cáceres | Software Developer & IT Specialist',
+  description = 'Josué Cáceres, Software Developer & IT Specialist. Python, Cybersecurity and Systems & Networks Technician.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#a855f7" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <slot />
+
+    <button
+      id="scroll-to-top"
+      aria-label="Volver arriba"
+      style="
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 45px;
+        height: 45px;
+        background: var(--bg-surface);
+        border: 1px solid rgba(168, 85, 247, 0.4);
+        border-radius: 50%;
+        color: var(--neon-purple);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+        box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+      "
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6"/>
+      </svg>
+    </button>
+    <style>
+      #scroll-to-top:hover {
+        background: rgba(168, 85, 247, 0.1);
+        border-color: var(--neon-purple);
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        transform: translateY(17px); 
+      }
+      #scroll-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      #scroll-to-top.visible:hover {
+        transform: translateY(-3px);
+      }
+    </style>
+
+    <script>
+      const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      revealEls.forEach((el) => observer.observe(el));
+
+      const skillBars = document.querySelectorAll('.skill-bar-fill');
+      const barObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const target = (entry.target as HTMLElement).getAttribute('data-width') || '80';
+              (entry.target as HTMLElement).style.width = target + '%';
+              barObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      skillBars.forEach((bar) => barObserver.observe(bar));
+
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+      const sectionObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((link) => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${entry.target.id}`) {
+                  link.classList.add('active');
+                }
+              });
+            }
+          });
+        },
+        { 
+          rootMargin: '-45% 0px -45% 0px',
+          threshold: 0 }
+      );
+      sections.forEach((s) => sectionObs.observe(s));
+
+      const menuBtn = document.getElementById('menu-btn');
+      const closeBtn = document.getElementById('close-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      menuBtn?.addEventListener('click', () => mobileNav?.classList.add('open'));
+      closeBtn?.addEventListener('click', () => mobileNav?.classList.remove('open'));
+      mobileNav?.querySelectorAll('a').forEach((a) =>
+        a.addEventListener('click', () => mobileNav.classList.remove('open'))
+      );
+
+      const typingEl = document.getElementById('typing-text');
+      if (typingEl) {
+        const roles = ['Networks & Systems', 'Technical Support', 'Python Development', 'Cybersecurity'];
+        let roleIdx = 0, charIdx = 0, deleting = false;
+        function typeLoop() {
+          const current = roles[roleIdx];
+          if (!deleting) {
+            charIdx++;
+            typingEl!.textContent = current.slice(0, charIdx);
+            if (charIdx === current.length) { deleting = true; setTimeout(typeLoop, 2000); return; }
+          } else {
+            charIdx--;
+            typingEl!.textContent = current.slice(0, charIdx);
+            if (charIdx === 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; }
+          }
+          setTimeout(typeLoop, deleting ? 55 : 95);
+        }
+        typeLoop();
+      }
+
+      const copyBtn = document.getElementById('copy-email');
+      copyBtn?.addEventListener('click', () => {
+        navigator.clipboard.writeText('devx@email.com').then(() => {
+          const span = copyBtn.querySelector('span');
+          if (span) { span.textContent = '¡Copied!'; setTimeout(() => (span.textContent = 'josue.dev.0210@gmail.com'), 2000); }
+        });
+      });
+
+      const navbar = document.getElementById('navbar');
+      const scrollTopBtn = document.getElementById('scroll-to-top');
+      
+      window.addEventListener('scroll', () => {
+        if (navbar) {
+          navbar.style.boxShadow = window.scrollY > 20
+            ? '0 4px 30px rgba(0,0,0,0.5)'
+            : 'none';
+        }
+        if (scrollTopBtn) {
+          if (window.scrollY > 400) {
+            scrollTopBtn.classList.add('visible');
+          } else {
+            scrollTopBtn.classList.remove('visible');
+          }
+        }
+      }, { passive: true });
+
+      scrollTopBtn?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    </script>
+  </body>
+</html>

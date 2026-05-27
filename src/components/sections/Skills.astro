@@ -1,0 +1,169 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+import { techCards, techStack } from '../../data/skills';
+
+const categories = ['All', 'Frontend', 'Backend', 'Networks', 'Security', 'Tools'] as const;
+---
+
+<section id="skills" class="section" style="background:var(--bg-surface);position:relative;overflow:hidden;">
+  <div class="grid-bg" style="position:absolute;inset:0;opacity:0.4;pointer-events:none;"></div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="reveal">
+      <SectionTitle
+        label="Skills"
+        title='My <span style="color:var(--neon-purple);">technical stack</span>'
+        subtitle="Tools and technologies I use to build real-world solutions."
+      />
+    </div>
+
+    <div
+      class="reveal"
+      style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem;"
+      id="skill-filter-tabs"
+    >
+      {categories.map((cat, i) => (
+        <button
+          class="skill-filter-btn"
+          data-filter={cat}
+          style={`
+            font-family:var(--font-display);
+            font-size:0.72rem;
+            letter-spacing:0.1em;
+            text-transform:uppercase;
+            padding:0.45rem 1.1rem;
+            border-radius:4px;
+            cursor:pointer;
+            transition:all 0.25s ease;
+            border:1px solid rgba(168,85,247,0.2);
+            background:${i === 0 ? 'rgba(168,85,247,0.15)' : 'transparent'};
+            color:${i === 0 ? 'var(--neon-purple)' : 'var(--text-muted)'};
+            ${i === 0 ? 'border-color:rgba(168,85,247,0.5);' : ''}
+          `}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <div class="tech-cards-grid reveal" id="tech-cards-grid">
+      {techCards.map((card) => (
+        <div
+          class="tech-card gradient-border"
+          data-category={card.category}
+        >
+          <img
+            src={card.icon}
+            alt={card.name}
+            width="48"
+            height="48"
+            style="margin-bottom:1rem;object-fit:contain;"
+          />
+          <h4 style="
+            font-family:var(--font-display);
+            font-size:1rem;
+            font-weight:700;
+            color:var(--text-primary);
+            margin-bottom:0.4rem;
+          ">
+            {card.name}
+          </h4>
+          <p style="
+            font-size:0.8rem;
+            color:var(--text-secondary);
+            line-height:1.5;
+            margin-bottom:1rem;
+            flex:1;
+          ">
+            {card.description}
+          </p>
+          <span style="
+            font-family:var(--font-mono);
+            font-size:0.65rem;
+            letter-spacing:0.1em;
+            text-transform:uppercase;
+            color:var(--neon-purple);
+            background:rgba(168,85,247,0.08);
+            padding:0.2rem 0.75rem;
+            border-radius:999px;
+            border:1px solid rgba(168,85,247,0.2);
+            align-self:flex-start;
+          ">
+            {card.category}
+          </span>
+        </div>
+      ))}
+    </div>
+
+    <div class="reveal" style="margin-top:4rem;">
+      <div style="display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center;max-width:700px;margin:0 auto;">
+        {techStack.map((tech) => (
+          <span class="tech-badge" style="cursor:default;">{tech}</span>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .tech-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .tech-card {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .tech-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(168, 85, 247, 0.12);
+  }
+
+  .skill-filter-btn:hover:not(.active) {
+    border-color: rgba(168,85,247,0.35) !important;
+    color: var(--text-primary) !important;
+    background: rgba(168,85,247,0.06) !important;
+  }
+
+  .skill-filter-btn.active {
+    background: rgba(168,85,247,0.15) !important;
+    color: var(--neon-purple) !important;
+    border-color: rgba(168,85,247,0.5) !important;
+  }
+
+  @media (max-width: 1024px) {
+    .tech-cards-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .tech-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .tech-cards-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const filtros    = document.querySelectorAll('.skill-filter-btn');
+  const tarjetas   = document.querySelectorAll('.tech-card');
+
+  filtros.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filtro = btn.getAttribute('data-filter');
+
+      filtros.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      tarjetas.forEach((card) => {
+        const cat  = card.getAttribute('data-category');
+        const show = filtro === 'All' || cat === filtro;
+        (card as HTMLElement).style.display = show ? 'flex' : 'none';
+      });
+    });
+  });
+</script>

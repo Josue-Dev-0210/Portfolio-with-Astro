@@ -1,0 +1,61 @@
+---
+import SectionTitle from '../ui/SectionTitle.astro';
+import TechBadge from '../ui/TechBadge.astro';
+import { experiences } from '../../data/experience';
+---
+
+<section id="experience" class="section" style="background:var(--bg-surface);position:relative;overflow:hidden;">
+  <div class="grid-bg" style="position:absolute;inset:0;opacity:0.3;pointer-events:none;"></div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="reveal">
+      <SectionTitle
+        label="Experience"
+        title='My <span style="color:var(--neon-purple);">professional</span> journey'
+        subtitle="The path taken building products and gaining real-world experience."
+      />
+    </div>
+
+    <div style="max-width:800px;margin:0 auto;position:relative;padding-left:3rem;">
+      <div class="timeline-line" style="left:0;"></div>
+
+      {experiences.map((exp, i) => (
+        <div class="reveal" style={`position:relative;margin-bottom:${i < experiences.length - 1 ? '3rem' : '0'};transition-delay:${i * 0.12}s;`}>
+          <div style="position:absolute;left:-3.45rem;top:0.25rem;display:flex;align-items:center;justify-content:center;">
+            <div class="timeline-dot" style={exp.current ? 'background:var(--neon-cyan);box-shadow:0 0 12px rgba(6,182,212,0.8);' : ''}></div>
+          </div>
+
+          <div class="exp-card" style="background:var(--bg-elevated);border:1px solid rgba(168,85,247,0.1);border-radius:10px;padding:1.75rem;transition:all 0.3s ease;position:relative;overflow:hidden;">
+            <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--neon-purple),transparent);border-radius:3px 0 0 3px;"></div>
+
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;">
+              <div>
+                <h3 style="font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text-primary);letter-spacing:0.02em;">{exp.role}</h3>
+                <p style="color:var(--neon-purple);font-size:0.875rem;font-weight:500;margin-top:0.15rem;">{exp.company}</p>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.25rem;">
+                <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);letter-spacing:0.08em;">{exp.period}</span>
+                {exp.current && (
+                  <span style="font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--neon-cyan);background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.3);padding:0.15rem 0.5rem;border-radius:3px;">Actual</span>
+                )}
+              </div>
+            </div>
+
+            <p style="color:var(--text-secondary);font-size:0.875rem;line-height:1.7;margin:0.75rem 0 1rem;">{exp.description}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+              {exp.tags.map((tag) => <TechBadge name={tag} />)}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .exp-card:hover {
+    border-color: rgba(168,85,247,0.25) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    transform: translateX(4px);
+  }
+</style>

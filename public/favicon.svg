@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="6" fill="#0d0d1a"/>
+  <rect x="1" y="1" width="30" height="30" rx="5" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
+  <text x="50%" y="56%" dominant-baseline="middle" text-anchor="middle"
+    font-family="monospace" font-weight="900" font-size="13" fill="#a855f7"
+    filter="url(#glow)">DX</text>
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+</svg>

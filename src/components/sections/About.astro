@@ -1,0 +1,122 @@
+---
+
+import SectionTitle from '../ui/SectionTitle.astro';
+import { Image } from 'astro:assets';
+import heroBgImg from '../../assets/hero-bg.png';
+---
+
+<section id="about" class="section" style="background:var(--bg-void);position:relative;overflow:hidden;">
+  <div style="
+    position:absolute;right:-200px;top:50%;transform:translateY(-50%);
+    width:600px;height:600px;
+    background:radial-gradient(ellipse,rgba(168,85,247,0.05) 0%,transparent 70%);
+    pointer-events:none;
+  "></div>
+
+  <div class="container">
+    <div class="reveal">
+      <SectionTitle
+        label="About Me"
+        title='Who is <span style="color:var(--neon-purple);">behind the code</span>'
+        subtitle="Passionate developer building solutions."
+      />
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="about-grid">
+
+      <div class="reveal-left" style="position:relative;">
+        <div style="
+          position:absolute;top:-20px;left:-20px;
+          width:100%;height:100%;
+          border:1px solid rgba(168,85,247,0.15);
+          border-radius:12px;
+          transform:rotate(-2deg);
+        "></div>
+        <div style="
+          position:relative;
+          border-radius:12px;overflow:hidden;
+          border:1px solid rgba(168,85,247,0.2);
+          box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(168,85,247,0.1);
+        ">
+          <Image
+            src={heroBgImg}
+            alt="Setup de trabajo"
+            style="width:100%;height:360px;object-fit:cover;filter:saturate(0.7) brightness(0.85);"
+          />
+          <div style="
+            position:absolute;inset:0;
+            background:linear-gradient(135deg,rgba(124,58,237,0.2),rgba(5,5,8,0.4));
+          "></div>
+          <div style="
+            position:absolute;top:0;left:0;right:0;height:2px;
+            background:linear-gradient(90deg,transparent,rgba(168,85,247,0.6),transparent);
+            animation:scan 3s ease-in-out infinite;
+          "></div>
+        </div>
+
+        <div style="position:absolute;top:-4px;left:-4px;width:20px;height:20px;border-top:2px solid var(--neon-purple);border-left:2px solid var(--neon-purple);border-radius:2px 0 0 0;"></div>
+        <div style="position:absolute;bottom:-4px;right:-4px;width:20px;height:20px;border-bottom:2px solid var(--neon-purple);border-right:2px solid var(--neon-purple);border-radius:0 0 2px 0;"></div>
+      </div>
+
+      <div class="reveal-right">
+        <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);margin-bottom:1rem;">
+        </p>
+
+        <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.8;margin-bottom:1.25rem;">
+          I`m a student with <span style="color:var(--text-primary);font-weight:600;">1 year of experience</span> 
+          In technical support, electronics troubleshooting, and costumer service, which helped me develop strong problem-solving, communication, and adaptability skill in real-world environments.
+        </p>
+
+        <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.8;margin-bottom:2rem;">
+          I`m <span style="color:var(--neon-purple);font-weight:500;">a passionate developer</span>, and 
+          behind every project is a strong passion for <span style="color:var(--neon-cyan);font-weight:500;">technology, open-source ecosystems, and real-world problem solving</span>, I`m currently studying Systems & Networking at Technological Institute San Agustin and Software Development at SENA, while continuously improving my skills through hands-on projects in Linux, cybersecurity, networking, AI, and modern web development.
+        </p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;">
+          {[
+            { num: '1+', label: 'Year of exp.' },
+            { num: '5+', label: 'Certifications' },
+            { num: 'C1', label: 'English Level' },
+          ].map(({ num, label }) => (
+            <div style="
+              text-align:center;
+              padding:1.25rem 0.75rem;
+              background:var(--bg-surface);
+              border:1px solid rgba(168,85,247,0.12);
+              border-radius:10px;
+              transition:all 0.3s ease;
+            " class="stat-card">
+              <div class="stat-number">{num}</div>
+              <div style="font-size:0.72rem;color:var(--text-muted);letter-spacing:0.05em;margin-top:0.25rem;">{label}</div>
+            </div>
+          ))}
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+          {[
+            { key: 'Location', val: 'Colombia' },
+            { key: 'Availability', val: 'Immediate' },
+            { key: 'Languages', val: 'Spanish, English (Advanced)' },
+            { key: 'Current Focus', val: 'Systems, Networking & Security' },
+          ].map(({ key, val }) => (
+            <div style="display:flex;gap:0.75rem;align-items:baseline;">
+              <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--neon-purple);min-width:110px;letter-spacing:0.05em;">{key}:</span>
+              <span style="color:var(--text-secondary);font-size:0.9rem;">{val}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stat-card:hover {
+    border-color: rgba(168,85,247,0.35) !important;
+    box-shadow: 0 0 20px rgba(168,85,247,0.1);
+    transform: translateY(-3px);
+  }
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+  }
+</style>

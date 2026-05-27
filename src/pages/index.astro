@@ -1,0 +1,26 @@
+---
+// src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/ui/NavBar.astro';
+import Hero from '../components/sections/Hero.astro';
+import About from '../components/sections/About.astro';
+import Skills from '../components/sections/Skills.astro';
+import Projects from '../components/sections/Projects.astro';
+import Experience from '../components/sections/Experience.astro';
+import Contact from '../components/sections/Contact.astro';
+---
+
+<BaseLayout
+  title="Josué Cáceres - Software Developer & IT Specialist"
+  description="Josué Cáceres, Software Developer & IT Specialist. Python, Cybersecurity and Systems & Networks Technician."
+>
+  <NavBar />
+  <main>
+    <Hero />
+    <About />
+    <Skills />
+    <Projects />
+    <Experience />
+    <Contact />
+  </main>
+</BaseLayout>
