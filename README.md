@@ -11,7 +11,7 @@ BUILT WITH:
 - [Astro](https://astro.build) — static site framework
 - [TailwindCSS](https://tailwindcss.com) — utility-first CSS
 - GitHub Actions — automated deploy
-- GitHub Pages — hosting
+
 
 FEATURED PROJECTS: 
 
