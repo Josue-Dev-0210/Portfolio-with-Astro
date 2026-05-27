@@ -36,7 +36,7 @@ export const experiences: Experience[] = [
   },
   {
     role: 'Technical Support Specialist',
-    company: 'CELUMANIA',
+    company: 'CPM SECURITY',
     period: 'Ago 2023 — Dic 2023',
     description:
       'Customer service and Technical support. Repair of mobile devices, modules and electronic equipment. Troubleshooting, diagnostics and maintenance of hardware and software. Inventory management and technical documentation.',
