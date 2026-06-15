@@ -23,7 +23,7 @@ export const projects: Project[] = [
   {
     title: 'Network Scanner Simulator | JC',
     description:
-      'An interactive scanner simulator built with Vanilla JavaScript. Simulates network scanning process, detecting active hosts, open ports, closed ports, and inactive address through a modern interface.',
+      'An scanner simulator built with Vanilla JavaScript. Simulates network scanning process, detecting active hosts, open ports, closed ports, and inactive address through a modern interface.',
     tags: ['HTML', 'CSS', 'JavaScript', 'Canvas API', 'SVG'],
     category: 'frontend',
     featured: true,
@@ -33,7 +33,7 @@ export const projects: Project[] = [
   {
     title: 'SUB-NET CALCULATOR | JC',
     description:
-      'Interactive subnet calculator built with Vanilla JavaScript. Calculates subnet ranges, hosts, CIDR, subnet masks, IP class/type, and visual bit distribution with color-coded network and host bits.',
+      'Subnet calculator built with Vanilla JavaScript. Calculates subnet ranges, hosts, CIDR, subnet masks, IP class/type, and visual bit distribution with color-coded network and host bits.',
     tags: ['HTML', 'CSS', 'JavaScript', 'SheetJS', 'jsPDF'],
     category: 'frontend',
     github: 'https://github.com/Josue-Dev-0210/Calculadora-Subredes-JC',
@@ -42,7 +42,7 @@ export const projects: Project[] = [
   {
     title: 'Password Strength Tester | JC',
     description:
-      'AInteractive password strength tester built with Vanilla JavaScript. Analyzes password security through entropy calculation, crack time estimation, character analysis and security recomendations.',
+      'A password strength tester built with Vanilla JavaScript. Analyzes password security through entropy calculation, crack time estimation, character analysis and security recomendations.',
     tags: ['HTML', 'CSS', 'JavaScript'],
     category: 'frontend',
     github: 'https://github.com/Josue-Dev-0210/Password-tester-JC',
@@ -56,5 +56,13 @@ export const projects: Project[] = [
     category: 'frontend',
     github: 'https://github.com/Josue-Dev-0210/LinuxDex',
     demo: 'https://josue-dev-0210.github.io/LinuxDex/',
+  },
+  {
+    title: 'Vuln-Manager JC',
+    description:
+      'A lightweight vulnerability management platform built with Flask and SQLite for tracking, organizing, and reporting security vulnerabilities.',
+    tags: ['Flask', 'HTML', 'JavaScript', 'Python3', 'SQLite', 'ReportLab'],
+    category: 'fullstack',
+    github: 'https://github.com/Josue-Dev-0210/Vuln-Manager-JC',
   },
 ];
