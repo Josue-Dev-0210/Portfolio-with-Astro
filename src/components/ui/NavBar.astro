@@ -3,6 +3,7 @@
 import Menu from '../icons/Menu.astro';
 import Close from '../icons/Close.astro';
 import GitHub from '../icons/GitHub.astro';
+import BrandMark from './BrandMark.astro';
 
 const navItems = [
   { label: 'Home', href: '#hero' },
@@ -28,15 +29,8 @@ const navItems = [
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:72px;">
 
 
-      <a href="#hero" style="text-decoration:none;display:flex;align-items:center;gap:0.5rem;">
-        <div style="
-          width:36px;height:36px;
-          background:linear-gradient(135deg,var(--deep-purple),var(--neon-purple));
-          border-radius:6px;
-          display:flex;align-items:center;justify-content:center;
-          box-shadow:var(--glow-sm);
-          font-family:var(--font-display);font-size:0.85rem;font-weight:900;color:#fff;
-        ">JC</div>
+      <a href="/" style="text-decoration:none;display:flex;align-items:center;gap:0.5rem;">
+        <BrandMark />
         <span style="font-family:var(--font-display);font-size:0.9rem;font-weight:700;color:var(--neon-purple);letter-spacing:0.08em;">
           JOSUÉ <span style="color:var(--text-secondary);">C.</span>
         </span>

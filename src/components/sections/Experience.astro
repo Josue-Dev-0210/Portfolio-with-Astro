@@ -31,7 +31,9 @@ import { experiences } from '../../data/experience';
             <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.5rem;">
               <div>
                 <h3 style="font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--text-primary);letter-spacing:0.02em;">{exp.role}</h3>
-                <p style="color:var(--neon-purple);font-size:0.875rem;font-weight:500;margin-top:0.15rem;">{exp.company}</p>
+                {exp.company && (
+                  <p style="color:var(--neon-purple);font-size:0.875rem;font-weight:500;margin-top:0.15rem;">{exp.company}</p>
+                )}
               </div>
               <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.25rem;">
                 <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);letter-spacing:0.08em;">{exp.period}</span>

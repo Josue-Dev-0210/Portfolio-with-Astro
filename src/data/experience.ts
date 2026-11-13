@@ -1,6 +1,6 @@
 export interface Experience {
   role: string;
-  company: string;
+  company?: string;
   period: string;
   description: string;
   tags: string[];
@@ -8,7 +8,14 @@ export interface Experience {
 }
 
 export const experiences: Experience[] = [
-    {
+  {
+    role: 'Systems & Networks Monitor',
+    period: '7 months',
+    description: 'Seven months of experience monitoring systems and networks.',
+    tags: ['Systems Monitoring', 'Networks'],
+    current: true,
+  },
+  {
     role: 'Software Programming',
     company: 'SENA - Centro de Comercio y Servicios',
     period: 'May 2026 — Actualidad',
