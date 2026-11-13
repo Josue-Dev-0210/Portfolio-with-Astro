@@ -38,8 +38,8 @@ export const experiences: Experience[] = [
     company: 'freeCodeCamp & BIG school',
     period: 'Mar 2026 — Abr 2026',
     description:
-      'Earned certifications in Relational Databases (~300hrs) and Python development (~300hrs) through freeCodeCamp. Cybersecurity and ethical hacking certification',
-    tags: ['Python', 'PostgreSQL', 'MySql', 'PHPMyAdmin', 'Cybersecurity', 'IA'],
+      'Earned certifications in Relational Databases (~300hrs) and Python development (~300hrs) through freeCodeCamp. Cybersecurity and ethical hacking certification is currently in progress.',
+    tags: ['Python', 'PostgreSQL', 'MySql', 'PHPMyAdmin', 'IA'],
   },
   {
     role: 'Technical Support Specialist',

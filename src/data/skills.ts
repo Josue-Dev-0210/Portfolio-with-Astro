@@ -1,7 +1,7 @@
 export interface TechCard {
   name: string;
   description: string;
-  category: 'Frontend' | 'Backend' | 'Networks' | 'Security' | 'Tools';
+  category: 'Frontend' | 'Backend' | 'Networks' | 'Tools';
   icon: string;
 }
 
