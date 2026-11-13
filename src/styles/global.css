@@ -2,33 +2,33 @@
 
 :root {
 
-  --neon-purple: #a855f7;
-  --neon-purple-glow: #c084fc;
-  --deep-purple: #7c3aed;
-  --electric-violet: #8b5cf6;
-  --neon-cyan: #06b6d4;
-  --neon-pink: #ec4899;
+  --neon-purple: #6d5bd0;
+  --neon-purple-glow: #8171dc;
+  --deep-purple: #5b4ab8;
+  --electric-violet: #7866d6;
+  --neon-cyan: #168b9b;
+  --neon-pink: #c35c91;
 
 
-  --bg-void: #050508;
-  --bg-surface: #0d0d1a;
-  --bg-elevated: #13132b;
-  --bg-border: #1e1e3f;
+  --bg-void: #f8fafc;
+  --bg-surface: #f1f4f8;
+  --bg-elevated: #ffffff;
+  --bg-border: #e2e8f0;
 
 
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --text-muted: #475569;
-  --text-accent: #a855f7;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-accent: #6d5bd0;
 
 
-  --glow-sm: 0 0 8px rgba(168, 85, 247, 0.4);
-  --glow-md: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.2);
-  --glow-lg: 0 0 30px rgba(168, 85, 247, 0.6), 0 0 60px rgba(168, 85, 247, 0.3), 0 0 100px rgba(168, 85, 247, 0.1);
-  --glow-cyan: 0 0 20px rgba(6, 182, 212, 0.5), 0 0 40px rgba(6, 182, 212, 0.2);
+  --glow-sm: 0 0 8px rgba(109, 91, 208, 0.16);
+  --glow-md: 0 0 16px rgba(109, 91, 208, 0.18);
+  --glow-lg: 0 0 24px rgba(109, 91, 208, 0.2);
+  --glow-cyan: 0 0 16px rgba(22, 139, 155, 0.18);
 
 
-  --font-display: 'Orbitron', sans-serif;
+  --font-display: 'Manrope', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
@@ -51,7 +51,7 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: crosshair;
+  cursor: default;
 }
 
 ::selection {
@@ -72,21 +72,15 @@ body::before {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.03) 2px,
-    rgba(0, 0, 0, 0.03) 4px
-  );
+  background: none;
   pointer-events: none;
   z-index: 9999;
 }
 
 .grid-bg {
   background-image:
-    linear-gradient(rgba(168, 85, 247, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(168, 85, 247, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(109, 91, 208, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(109, 91, 208, 0.035) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -475,8 +469,8 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(168, 85, 247, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(109, 91, 208, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(109, 91, 208, 0.04) 1px, transparent 1px);
   background-size: 80px 80px;
   animation: grid-scroll 20s linear infinite;
 }

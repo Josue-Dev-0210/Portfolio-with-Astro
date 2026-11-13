@@ -1,9 +1,7 @@
 ---
 import ArrowRight from '../icons/ArrowRight.astro';
-import Download from '../icons/Download.astro';
 import GitHub from '../icons/GitHub.astro';
 import LinkedIn from '../icons/LinkedIn.astro';
-import Twitter from '../icons/Twitter.astro';
 import { Image } from 'astro:assets';
 import avatarImg from '../../assets/avatar.png';
 ---
@@ -64,7 +62,7 @@ import avatarImg from '../../assets/avatar.png';
         >
           <div style="width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px #22c55e;animation:glow-pulse 2s infinite;"></div>
           <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-secondary);letter-spacing:0.1em;">
-            Available for projects
+            Currently employed
           </span>
         </div>
 
@@ -116,9 +114,9 @@ import avatarImg from '../../assets/avatar.png';
             View projects
             <ArrowRight size={18} />
           </a>
-          <a href="/CV.pdf" download class="btn btn-outline" style="gap:0.5rem;">
-            <Download size={18} />
-            Download CV
+          <a href="#contact" class="btn btn-outline" style="gap:0.5rem;">
+            Contact me
+            <ArrowRight size={18} />
           </a>
         </div>
 
